@@ -13,10 +13,10 @@ This guide walks you through implementing the Swiper Attribute System in your We
 
 ```html
 <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
-<!-- Upload swiper-attribute.css to your Webflow hosting and reference it here -->
-<!-- Or paste the CSS content in your Project Settings → Custom Code → Head Code wrapped in <style> tags -->
+<!-- Swiper Attribute System CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/corsettiDev/swiper-attribute-system@latest/swiper-attribute.css" />
 ```
 
 5. Scroll to **Footer Code** section
@@ -24,24 +24,26 @@ This guide walks you through implementing the Swiper Attribute System in your We
 
 ```html
 <!-- Swiper JS Library -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
-<!-- Upload swiper-attribute.js to your Webflow hosting and reference it here -->
-<!-- Or paste the JS content directly wrapped in <script> tags -->
+<!-- Swiper Attribute System -->
+<script src="https://cdn.jsdelivr.net/gh/corsettiDev/swiper-attribute-system@latest/swiper-attribute.js"></script>
 ```
 
-### Hosting the Files
+### Alternative: Paste Directly (If CDN Blocked)
 
-**Option A: Paste Directly** (Easiest)
-1. Copy the content of `swiper-attribute.css`
+If you can't use CDN links (e.g., due to corporate firewall):
+
+**Option A: Paste CSS and JS Inline**
+1. Copy the content of `swiper-attribute.css` from GitHub
 2. In Head Code, wrap it in `<style>` tags and paste
-3. Copy the content of `swiper-attribute.js`
+3. Copy the content of `swiper-attribute.js` from GitHub
 4. In Footer Code, wrap it in `<script>` tags and paste
 
-**Option B: Host on Webflow** (Cleaner)
-1. Upload `swiper-attribute.css` and `swiper-attribute.js` to Webflow's hosting
-2. Reference them with the URLs Webflow provides
-3. Update the script tags above with the actual URLs
+**Option B: Host on Webflow**
+1. Download `swiper-attribute.css` and `swiper-attribute.js` from GitHub
+2. Upload to Webflow's hosting (if supported by your plan)
+3. Reference them with the URLs Webflow provides
 
 ## Step 2: Build Your First Slider
 

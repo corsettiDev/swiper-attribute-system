@@ -24,20 +24,20 @@ Add these in your Webflow project settings (Project Settings → Custom Code →
 
 ```html
 <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
-<!-- Your custom CSS -->
-<link rel="stylesheet" href="/path/to/swiper-attribute.css" />
+<!-- Swiper Attribute System CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/corsettiDev/swiper-attribute-system@latest/swiper-attribute.css" />
 ```
 
 Then add these before `</body>` (Project Settings → Custom Code → Footer Code):
 
 ```html
 <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
 <!-- Swiper Attribute System -->
-<script src="/path/to/swiper-attribute.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/corsettiDev/swiper-attribute-system@latest/swiper-attribute.js"></script>
 ```
 
 ### 2. Build Your Slider in Webflow
@@ -622,7 +622,7 @@ Before deploying to production, verify:
 
 ## Dependencies
 
-- **SwiperJS**: v11.x (recommended) or v8.x+
+- **SwiperJS**: v12.x (recommended) or v11.x+
 - **Webflow**: All plans
 
 ## File Structure
