@@ -1,0 +1,496 @@
+/**
+ * Webflow Attribute-Based Swiper System - Styles
+ * ==============================================
+ *
+ * Minimal CSS to ensure proper Swiper functionality without
+ * conflicting with Webflow Designer styles.
+ *
+ * IMPORTANT: This CSS complements (not replaces) the official
+ * Swiper CSS bundle (swiper-bundle.min.css). Both should be loaded.
+ *
+ * @version 1.0.0
+ */
+
+/* ============================================================================
+   CORE LAYOUT NORMALIZATION
+   ============================================================================
+   These styles ensure Swiper's layout system works correctly regardless
+   of what styling is applied in Webflow's Designer.
+*/
+
+/**
+ * Swiper Container
+ * The main slider element that contains everything
+ */
+.swiper {
+  /* Ensure proper positioning context for absolute elements */
+  position: relative;
+
+  /* Reset any conflicting display properties */
+  display: block;
+
+  /* Contain the slider within its bounds */
+  overflow: hidden;
+
+  /* Provide default dimensions (can be overridden in Webflow) */
+  width: 100%;
+  height: auto;
+
+  /* Improve rendering performance */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/**
+ * Swiper Wrapper
+ * The container that holds all slides and moves during transitions
+ */
+.swiper-wrapper {
+  /* Critical: Flexbox is required for Swiper's layout system */
+  display: flex !important;
+
+  /* Ensure proper positioning */
+  position: relative;
+
+  /* Full dimensions */
+  width: 100%;
+  height: 100%;
+
+  /* Prevent wrapping - slides must stay in a single row */
+  flex-wrap: nowrap !important;
+
+  /* Reset any margins that might affect layout */
+  margin: 0;
+  padding: 0;
+
+  /* Smooth transitions */
+  transition-property: transform;
+
+  /* Align slides properly */
+  align-items: stretch;
+
+  /* Performance optimization */
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/**
+ * Swiper Slide
+ * Individual slide elements
+ */
+.swiper-slide {
+  /* Prevent slides from shrinking */
+  flex-shrink: 0 !important;
+
+  /* Reset box model */
+  box-sizing: border-box;
+
+  /* Full height of container */
+  height: auto;
+
+  /* Default width (overridden by Swiper JS based on slidesPerView) */
+  width: 100%;
+
+  /* Ensure positioning context */
+  position: relative;
+
+  /* Reset any default spacing */
+  margin: 0;
+
+  /* Performance optimization */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/**
+ * Prevent Webflow's default image styling from breaking slide layout
+ */
+.swiper-slide img {
+  /* Ensure images don't break out of slides */
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================================
+   PAGINATION STYLING
+   ============================================================================
+   Minimal styling for pagination bullets. Can be customized in Webflow.
+*/
+
+/**
+ * Pagination Container
+ * Default positioning at bottom center
+ */
+.swiper-pagination {
+  /* Position at bottom of slider */
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Stack above slides */
+  z-index: 10;
+
+  /* Flexbox for bullet alignment */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  /* Allow pointer events */
+  pointer-events: auto;
+}
+
+/**
+ * Pagination Bullet
+ * Individual dot/bullet element
+ */
+.swiper-pagination-bullet {
+  /* Size */
+  width: 8px;
+  height: 8px;
+
+  /* Shape */
+  border-radius: 50%;
+
+  /* Default color */
+  background-color: rgba(0, 0, 0, 0.2);
+
+  /* Remove button styling */
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  /* Cursor feedback */
+  cursor: pointer;
+
+  /* Smooth transitions */
+  transition: all 0.3s ease;
+
+  /* Reset display */
+  display: inline-block;
+}
+
+/**
+ * Active Pagination Bullet
+ * Highlighted state for current slide
+ */
+.swiper-pagination-bullet-active {
+  /* Highlight color */
+  background-color: rgba(0, 0, 0, 0.8);
+
+  /* Slightly larger */
+  width: 10px;
+  height: 10px;
+}
+
+/**
+ * Pagination Bullet Hover State
+ */
+.swiper-pagination-bullet:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================================
+   NAVIGATION BUTTONS
+   ============================================================================
+   Minimal styling for prev/next buttons. Customize in Webflow for your design.
+*/
+
+/**
+ * Navigation Button Base
+ * Shared styles for prev and next buttons
+ */
+.swiper-button-prev,
+.swiper-button-next {
+  /* Position absolutely within slider */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* Stack above slides */
+  z-index: 10;
+
+  /* Size */
+  width: 44px;
+  height: 44px;
+
+  /* Flexbox for centering icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Cursor feedback */
+  cursor: pointer;
+
+  /* Remove button styling */
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+
+  /* Shape */
+  border-radius: 50%;
+
+  /* Smooth transitions */
+  transition: all 0.3s ease;
+
+  /* Allow pointer events */
+  pointer-events: auto;
+
+  /* Text color for icons */
+  color: #ffffff;
+}
+
+/**
+ * Previous Button Position
+ */
+.swiper-button-prev {
+  left: 10px;
+}
+
+/**
+ * Next Button Position
+ */
+.swiper-button-next {
+  right: 10px;
+}
+
+/**
+ * Navigation Button Hover State
+ */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/**
+ * Disabled Navigation Button
+ * Applied when at the start/end of slider (non-loop mode)
+ */
+.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/**
+ * Hide default Swiper navigation arrows
+ * (Allows you to use custom icons/images in Webflow)
+ */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  /* Remove default arrow icons */
+  content: '';
+  display: none;
+}
+
+/* ============================================================================
+   WEBFLOW-SPECIFIC HELPERS
+   ============================================================================
+   Utilities to prevent common Webflow layout conflicts
+*/
+
+/**
+ * Prevent Webflow's collection list wrapper from interfering
+ * (If using CMS collection lists within slides)
+ */
+.swiper-slide .w-dyn-list {
+  /* Reset any default margins */
+  margin: 0;
+}
+
+.swiper-slide .w-dyn-items {
+  /* Ensure proper display */
+  display: block;
+}
+
+/**
+ * Reset Webflow's default link styling within slides
+ */
+.swiper-slide a {
+  /* Prevent link underlines from affecting layout */
+  text-decoration: inherit;
+}
+
+/* ============================================================================
+   RESPONSIVE HELPERS
+   ============================================================================
+   Ensure proper behavior across Webflow's breakpoints
+*/
+
+/**
+ * Mobile Portrait (≤479px)
+ */
+@media screen and (max-width: 479px) {
+  /* Smaller navigation buttons on mobile */
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Smaller pagination bullets */
+  .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/**
+ * Mobile Landscape (480px - 767px)
+ */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  /* Slightly larger navigation on landscape */
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/**
+ * Tablet (768px - 991px)
+ * Default sizing works well here
+ */
+
+/**
+ * Desktop (≥992px)
+ * Default sizing works well here
+ */
+
+/* ============================================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================================================
+*/
+
+/**
+ * Focus states for keyboard navigation
+ */
+.swiper-button-prev:focus,
+.swiper-button-next:focus,
+.swiper-pagination-bullet:focus {
+  outline: 2px solid #4299e1;
+  outline-offset: 2px;
+}
+
+/**
+ * Respect user's motion preferences
+ */
+@media (prefers-reduced-motion: reduce) {
+  .swiper-wrapper {
+    transition-duration: 0.01ms !important;
+  }
+
+  .swiper-pagination-bullet {
+    transition: none;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    transition: none;
+  }
+}
+
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================
+   Optional helper classes for common customizations
+*/
+
+/**
+ * Center slide content vertically
+ * Add this class in Webflow to slide elements that need centering
+ */
+.swiper-slide-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/**
+ * Full-height slides
+ * Makes slides take full height of viewport (useful for hero sliders)
+ */
+.swiper-full-height .swiper {
+  height: 100vh;
+}
+
+.swiper-full-height .swiper-slide {
+  height: 100vh;
+}
+
+/**
+ * Pagination outside slider
+ * Use when you want pagination below the slider instead of overlaid
+ */
+.swiper-pagination-outside {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+  margin-top: 20px;
+}
+
+/**
+ * Navigation outside slider
+ * Use when you want buttons outside the slider edges
+ */
+.swiper-nav-outside .swiper-button-prev {
+  left: -60px;
+}
+
+.swiper-nav-outside .swiper-button-next {
+  right: -60px;
+}
+
+/* ============================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================================================
+*/
+
+/**
+ * GPU acceleration for smoother animations
+ */
+.swiper-wrapper,
+.swiper-slide {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/**
+ * Contain layout and paint operations
+ */
+.swiper {
+  contain: layout style paint;
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================
+   Ensure sliders display properly when printed
+*/
+
+@media print {
+  /* Show all slides when printing */
+  .swiper-wrapper {
+    display: block !important;
+    transform: none !important;
+  }
+
+  .swiper-slide {
+    page-break-inside: avoid;
+  }
+
+  /* Hide navigation elements */
+  .swiper-pagination,
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+}
